@@ -1,0 +1,90 @@
+Create a React app that has two pages: Home and About. The Home page should display a welcome message and a link to the about page. The About page should display information about your app. [using react routing]
+
+
+
+
+INSTALL THE NECESSARY PACKAGES:
+     
+     npm install react-router-dom
+
+
+
+
+APP.JS
+     
+ 
+import React from 'react';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import Home from './Home';
+import About from './About';
+
+const App = () => {
+  return (
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+          </ul>
+        </nav>
+
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/about" component={About} />
+        </Switch>
+      </div>
+    </Router>
+  );
+};
+
+export default App;
+
+
+
+
+
+
+HOME.JS
+
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+const Home = () => {
+  return (
+    <div>
+      <h2>Welcome to the Home Page!</h2>
+      <p>This is the home page of the app.</p>
+      <Link to="/about">About</Link>
+    </div>
+  );
+};
+
+export default Home;
+
+
+
+
+
+ABOUT.JS
+
+import React from 'react';
+
+const About = () => {
+  return (
+    <div>
+      <h2>About This App</h2>
+      <p>This app demonstrates React Router for multi-page navigation.</p>
+    </div>
+  );
+};
+
+export default About;
+
+
+
+
